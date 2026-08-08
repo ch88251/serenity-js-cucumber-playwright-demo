@@ -9,7 +9,7 @@
     "test:execute": "cucumber-js",
     "test:report": "serenity-bdd run --features ./features",
     "start": "mkdirp target/site/serenity && npx http-server -p 8080 target/site/serenity -s -o",
-    "lint": "eslint --ext ts --config .eslintrc.js .",
+    "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix"
   },
   "repository": {
@@ -43,6 +43,7 @@
     "@serenity-js/rest": "^3.42.0",
     "@serenity-js/serenity-bdd": "^3.42.0",
     "@serenity-js/web": "^3.42.0",
+    "@types/node": "^22.20.1",
     "@typescript-eslint/eslint-plugin": "^8.59.1",
     "@typescript-eslint/parser": "^8.59.1",
     "eslint": "^9.39.4",

@@ -11,7 +11,7 @@ Given('{actor} is on the Automation Exercise login page', async (actor: Actor) =
 );
 
 When('{pronoun} sign(s) up with the name {string}', async (actor: Actor, name: string) => {
-    const email = `test.${name.toLowerCase().replace(/\s+/g, '.')}+${Date.now()}@example.com`;
+    const email = `test.${name.toLowerCase().replaceAll(/\s+/g, '.')}+${Date.now()}@example.com`;
     return actor.attemptsTo(
         SignUp.withNameAndEmail(name, email),
     );

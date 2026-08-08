@@ -1,7 +1,6 @@
 import { Task } from '@serenity-js/core';
 import { By, Click, Enter, PageElement, Select } from '@serenity-js/web';
 
-
 export const CompleteRegistration = {
     withPassword: (password: string) =>
         Task.where(`#actor completes account registration`,
