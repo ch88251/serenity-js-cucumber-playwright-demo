@@ -1,37 +1,30 @@
 import { Given, Then, When } from '@cucumber/cucumber';
-import { Actor } from '@serenity-js/core';
+import { Actor, actorInTheSpotlight } from '@serenity-js/core';
 import { Navigate } from '@serenity-js/web';
 
-import { CompleteRegistration, SignUp, VerifySignUp } from '../../test/signup';
+import { Authenticate, VerifyAuthentication } from '../../test/authentication';
 
-Given('{actor} is on the main landing page', async (actor: Actor) =>
+Given('{actor} starts with the main landing page', async (actor: Actor) =>
     actor.attemptsTo(
-        Navigate.to('http://localhost:3000/'),
+        Navigate.to('/'),
     )
 );
 
-When('{pronoun} sign(s) up with the name {string}', async (actor: Actor, name: string) => {
-    const email = `test.${name.toLowerCase().replaceAll(/\s+/g, '.')}+${Date.now()}@example.com`;
-    return actor.attemptsTo(
-        SignUp.withNameAndEmail(name, email),
-    );
-});
-
-When('{pronoun} complete(s) the registration', async (actor: Actor) => {
-    const password = `Pw!${Date.now()}`;
-    return actor.attemptsTo(
-        CompleteRegistration.withPassword(password),
-    );
-});
-
-Then('{pronoun} should see that her account has been created', async (actor: Actor) =>
+When('{pronoun} log(s) in using {string} and {string}', async (actor: Actor, username: string, password: string) =>
     actor.attemptsTo(
-        VerifySignUp.accountCreated(),
+        Authenticate.using(username, password),
     )
 );
 
-Then('{pronoun} should be logged in as {string}', async (actor: Actor, name: string) =>
-    actor.attemptsTo(
-        VerifySignUp.loggedInAs(name),
+/**
+ * If you need to use a RegExp instead of Cucumber Expressions like {actor} and {pronoun}
+ * you can use actorCalled(name) and actorInTheSpotlight() instead
+ *
+ *  see: https://serenity-js.org/modules/core/function/index.html#static-function-actorCalled
+ *  see: https://serenity-js.org/modules/core/function/index.html#static-function-actorInTheSpotlight
+ */
+Then(/.* should see that authentication has (succeeded|failed)/, async (expectedOutcome: string) =>
+    actorInTheSpotlight().attemptsTo(
+        VerifyAuthentication[expectedOutcome](),
     )
 );
