@@ -4,9 +4,9 @@ import { Navigate } from '@serenity-js/web';
 
 import { CompleteRegistration, SignUp, VerifySignUp } from '../../test/signup';
 
-Given('{actor} is on the Automation Exercise login page', async (actor: Actor) =>
+Given('{actor} is on the main landing page', async (actor: Actor) =>
     actor.attemptsTo(
-        Navigate.to('https://automationexercise.com/login'),
+        Navigate.to('http://localhost:3000/'),
     )
 );
 

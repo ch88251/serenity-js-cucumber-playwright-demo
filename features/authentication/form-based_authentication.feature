@@ -1,24 +1,23 @@
 Feature: Form-based authentication
 
-  In order to learn how to use Serenity/JS with Cucumber and Playwright
-  As a Curious Developer
-  I'd like to see an example
+  In order to use the carclinic application
+  As a carclinic employee
+  I'd like to login
 
   Background:
-    Given Alice starts with the "Form Authentication" example
+    Given Susan starts with the main landing page
 
   Scenario Outline: Using username and password to log in
 
-    ["The Internet"](https://the-internet.herokuapp.com/) is an example application
-    that captures prominent and ugly functionality found on the web.
-    Perfect for writing automated acceptance tests against 😎
-    With **Serenity/JS** you can use [Markdown](https://en.wikipedia.org/wiki/Markdown)
-    to better describe each `Feature` and `Scenario`.
+    Write a description here about the scenario
 
     When she logs in using "<username>" and "<password>"
     Then she should see that authentication has <outcome>
 
     Examples:
-      | username | password             | outcome   |
-      | tomsmith | SuperSecretPassword! | succeeded |
-      | foobar   | barfoo               | failed    |
+      | username    | password | outcome   |
+      | admin.user  | changeit | succeeded |
+      | admin.user  | badpw123 | failed    |
+      | staff.user  | changeit | succeeded |
+      | staff.user  | badpw123 | failed    |
+

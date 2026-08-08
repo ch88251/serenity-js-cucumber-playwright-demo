@@ -3,18 +3,10 @@ import { Actor, actorInTheSpotlight } from '@serenity-js/core';
 import { Navigate } from '@serenity-js/web';
 
 import { Authenticate, VerifyAuthentication } from '../../test/authentication';
-import { PickExample } from '../../test/examples';
 
-/**
- * Below step definitions use Cucumber Expressions
- * see: https://cucumber.io/docs/cucumber/cucumber-expressions/
- *
- * {actor} and {pronoun} are custom expressions defined under support/parameters.ts
- */
-Given('{actor} starts with the {string} example', async (actor: Actor, exampleName: string) =>
+Given('{actor} starts with the main landing page', async (actor: Actor) =>
     actor.attemptsTo(
         Navigate.to('/'),
-        PickExample.called(exampleName),
     )
 );
 
@@ -36,4 +28,3 @@ Then(/.* should see that authentication has (succeeded|failed)/, async (expected
         VerifyAuthentication[expectedOutcome](),
     )
 );
-

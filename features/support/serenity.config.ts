@@ -37,7 +37,7 @@ BeforeAll(async () => {
         actors: new Actors(
             browser,
             {
-                baseURL: 'https://the-internet.herokuapp.com/',
+                baseURL: 'http://localhost:3000/',
             },
             {
                 defaultNavigationTimeout: timeouts.playwright.defaultNavigationTimeout.inMilliseconds(),

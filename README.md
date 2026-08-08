@@ -76,22 +76,3 @@ HEADLESS=false npm test
 # Run tests with different configuration
 npm test -- --profile <profile-name>
 ```
-
-## Next steps
-
-- Replace the example tests with your own
-- Add new tasks, interactions, and assertions using Serenity/JS
-- Extend the test suite or integrate it into CI/CD pipelines
-- Use the sample reports to understand expected testing and reporting workflows
-
-
-## Documentation
-
-- [Using Serenity/JS with Cucumber](https://serenity-js.org/handbook/test-runners/cucumber/)
-- [API Reference](https://serenity-js.org/api/)
-- [Screenplay Pattern Guide](https://serenity-js.org/handbook/design/screenplay-pattern/)
-- [Serenity/JS Project Templates](https://serenity-js.org/handbook/project-templates/)
-- [More examples and reference implementations](https://github.com/serenity-js/serenity-js/tree/main/examples)
-- [Tutorial: First Web Scenario](https://serenity-js.org/handbook/tutorials/your-first-web-scenario/)
-- [Tutorial: First API Scenario](https://serenity-js.org/handbook/tutorials/your-first-api-scenario/)
-
