@@ -9,8 +9,6 @@ Feature: Form-based authentication
 
   Scenario Outline: A user logs in with valid and invalid credentials
 
-    When she navigates to the login page
-
     When she logs in using "<username>" and "<password>"
     Then she should see that authentication has <outcome>
 
