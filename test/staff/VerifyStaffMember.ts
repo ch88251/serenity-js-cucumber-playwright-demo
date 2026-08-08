@@ -4,6 +4,9 @@ import { By, isVisible, PageElements } from '@serenity-js/web';
 
 import { STAFF_MEMBER_WITH_MISSING_FIELD_EMAIL } from './AddStaffMember';
 
+/**
+ * A Task that allows an actor to verify that a staff member is listed in the staff table
+ */
 export class VerifyStaffMember {
     static isListedAsAMemberOfStaff = (fullName: string) =>
         Task.where(`#actor verifies that ${ fullName } is listed as a member of staff`,

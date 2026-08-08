@@ -1,15 +1,15 @@
 Feature: Form-based authentication
 
-  In order to use the carclinic application
-  As a carclinic employee
-  I'd like to login
+  In order to access the features available to me based on my role,
+  As a carclinic employee,
+  I want to log in to the application using my username and password.
 
   Background:
     Given Susan starts with the main landing page
 
-  Scenario Outline: Using username and password to log in
+  Scenario Outline: A user logs in with valid and invalid credentials
 
-    Write a description here about the scenario
+    When she navigates to the login page
 
     When she logs in using "<username>" and "<password>"
     Then she should see that authentication has <outcome>
