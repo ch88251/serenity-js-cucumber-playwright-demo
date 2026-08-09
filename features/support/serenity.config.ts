@@ -19,6 +19,7 @@ const timeouts = {
 }
 
 let browser: playwright.Browser;
+const carClinicBaseUrl = process.env.CARCLINIC_BASE_URL ?? 'http://localhost:3000/';
 
 // Configure default Cucumber step timeout
 setDefaultTimeout(timeouts.cucumber.step.inMilliseconds());
@@ -37,7 +38,7 @@ BeforeAll(async () => {
         actors: new Actors(
             browser,
             {
-                baseURL: 'http://localhost:3000/',
+                baseURL: carClinicBaseUrl,
             },
             {
                 defaultNavigationTimeout: timeouts.playwright.defaultNavigationTimeout.inMilliseconds(),
